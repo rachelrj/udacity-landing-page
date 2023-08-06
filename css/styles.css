@@ -224,3 +224,60 @@ section.active-section .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+@media only screen and (max-width: 600px) {
+    #navbar__list {
+        display: none;
+    }
+    #navbar__list.open {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: auto;
+        color: white;
+        float: right;
+        margin-top: 75px;
+    }
+    .navbar__menu {
+        width: 100%;
+        height: 75px;
+        color: white;
+    }
+    .navbar__menu #hamburger-lines {
+        background: white;
+        display: block;
+        position: absolute;
+        height: 50px;
+        width: 60px;
+        padding-right: 10px;
+        right: 0;
+        top: 0;
+        transition: all 0.5s ease-out;
+    }
+    #hamburger-lines .line {
+        display: block;
+        height: 8px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        width: 100%;
+        border-radius: 10px;
+        background: black;
+        transition: all 0.5s ease-out;
+    }
+    #hamburger-lines .close {
+        transform: rotate(180deg);
+    }
+
+    #hamburger-lines.close .line:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+        margin-top: 25px;
+    }
+ 
+    #hamburger-lines.close .line:nth-child(2) {
+        display: none;
+    }
+ 
+    #hamburger-lines.close .line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }

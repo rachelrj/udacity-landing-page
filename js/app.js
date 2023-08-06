@@ -24,7 +24,7 @@
 */
 let sections;
 let nav;
-
+let hamburger;
 
 /**
  * End Global Variables
@@ -104,8 +104,14 @@ const scrollIntoView = (event) => {
 document.addEventListener('DOMContentLoaded', function () {
     sections = document.getElementsByTagName("section");
     nav = document.getElementById("navbar__list");
+    hamburger = document.getElementById("hamburger-lines")
     buildNav();
     document.addEventListener("scroll", makeActive);
-    nav.addEventListener("click", scrollIntoView)
+    nav.addEventListener("click", scrollIntoView);
+    hamburger.addEventListener("click", (event) => {
+        event.preventDefault();
+        hamburger.classList.toggle("close");
+        nav.classList.toggle("open");
+    })
 });
 
