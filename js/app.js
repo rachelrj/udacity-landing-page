@@ -14,11 +14,6 @@
 */
 
 /**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
  * Define Global Variables
  * 
 */
@@ -28,19 +23,18 @@ let hamburger;
 
 /**
  * End Global Variables
- * Start Helper Functions
  * 
 */
 
 
-
 /**
- * End Helper Functions
  * Begin Main Functions
  * 
 */
 
-// build the nav
+// Builds the navigation dynamically from the sections
+// Iterates on the array of sections to create list items
+// Adds list items to navigation unordered list.
 const buildNav = () => {
     const navUl = document.getElementById("navbar__list");
     const navLiArr = [];
@@ -59,7 +53,10 @@ const buildNav = () => {
 }
 
 
-// Add class 'active' to section when near top of viewport
+// Iterates through sections and checks which section is near top of viewport
+// Sets that section's class to "active-class" and sets the appropriate
+// nav list item's class to "active-nav"
+// removes those classes if a section is no longer in the viewport
 const makeActive = () => {
     Array.prototype.forEach.call(sections, function(element) {
         const box = element.getBoundingClientRect();
@@ -78,7 +75,9 @@ const makeActive = () => {
 }
 
 
-// Scroll to anchor ID using scrollTO event
+// If the user clicks on the navbar, if that click aligns with a 
+// navbar list item, then finds the appropriate section and scrolls
+// that section into view.
 const scrollIntoView = (event) => {
     let navName = event.target.id;
     if(navName === "navbar__list") {
@@ -98,9 +97,10 @@ const scrollIntoView = (event) => {
  * 
 */
 
-// Build menu 
-// Scroll to section on link click
-// Set sections as active
+// Builds the nav and adds all the event listeners
+// After the document is ready.
+// Assumes that this javascript file could be included
+// in either the head or at the bottom of the html file
 document.addEventListener('DOMContentLoaded', function () {
     sections = document.getElementsByTagName("section");
     nav = document.getElementById("navbar__list");
