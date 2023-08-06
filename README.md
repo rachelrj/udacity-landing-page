@@ -1,9 +1,13 @@
 # Landing Page Project
 
+Built/forked from [the udacity starter project](https://github.com/udacity/cd0428-landing-page).
+
+The project is to convert from a static website to an interactive one. Steps included building a dynamic navigation, showing the user which section they're in, implementing navigation scroll, and including a mobile hamburger menu.
+
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+There are no build steps. Simply open the html file in a browser to run.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Maintainers
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+See [the udacity starter project](https://github.com/udacity/cd0428-landing-page) for maintainers of the base repo. See [rachelrj](https://github.com/rachelrj) for questions about the new interactive elements
