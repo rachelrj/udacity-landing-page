@@ -23,6 +23,7 @@
  * 
 */
 let sections;
+let nav;
 
 
 /**
@@ -40,7 +41,6 @@ let sections;
 */
 
 // build the nav
-
 const buildNav = () => {
     const navUl = document.getElementById("navbar__list");
     const navLiArr = [];
@@ -59,17 +59,15 @@ const buildNav = () => {
 }
 
 
-
 // Add class 'active' to section when near top of viewport
-
 const makeActive = () => {
     Array.prototype.forEach.call(sections, function(element) {
         const box = element.getBoundingClientRect();
         const navName = element.dataset.nav;
         const navItem = document.getElementById(`${navName}-nav`);
         let viewPortBottom = window.innerHeight || document.documentElement.clientHeight;
-        // Adding 150 so that active doesn't flip until entire h1 in viewport
-        if (box.top + 150 <= viewPortBottom && box.bottom + 150 >= viewPortBottom) {
+        // Adding 200 so that active doesn't flip until entire h1 in viewport
+        if (box.top + 200 <= viewPortBottom && box.bottom + 200 >= viewPortBottom) {
             element.classList.add("active-section");
             navItem.classList.add("active-nav");
         } else {
@@ -79,7 +77,19 @@ const makeActive = () => {
     });
 }
 
+
 // Scroll to anchor ID using scrollTO event
+const scrollIntoView = (event) => {
+    let navName = event.target.id;
+    if(navName === "navbar__list") {
+        return;
+    }
+    navName = navName.split("-")[0];
+    const element = document.getElementById(navName);
+    element.scrollIntoView({
+        behavior: 'smooth'
+    });
+}
 
 
 /**
@@ -89,17 +99,13 @@ const makeActive = () => {
 */
 
 // Build menu 
-
+// Scroll to section on link click
+// Set sections as active
 document.addEventListener('DOMContentLoaded', function () {
     sections = document.getElementsByTagName("section");
+    nav = document.getElementById("navbar__list");
     buildNav();
-    document.addEventListener("scroll", function() { 
-        makeActive();
-    });
+    document.addEventListener("scroll", makeActive);
+    nav.addEventListener("click", scrollIntoView)
 });
-
-// Scroll to section on link click
-
-// Set sections as active
-
 
